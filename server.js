@@ -22,10 +22,24 @@ serverSocket.on('connect', socket => {
 
     socket.on('status', msg => {
         console.log(msg);
+<<<<<<< HEAD
         //serverSocket.emit('status', msg)
         socket.broadcast.emit('status',msg)
+=======
+        //serverSocket.emit('status', msg) // o servidor envia msg em broadcast (para todos os clientes)
+
+        //o cliente que enviou msg pro servidor encaminha tal msg em broadcast pros outros clientes
+        socket.broadcast.emit('status', msg) 
+>>>>>>> ca884f3316bec38eebc8fa99ba29c9a058eb63db
     });
 })
 
 const PORT = 8080
 httpServer.listen(PORT, () => console.log('Servidor iniciado na porta ' + PORT))
+
+/*
+SaaS = Software as a Service = Software como Serviço
+PaaS = Platform as a Service = Plataforma como Serviço
+IaaS = Infrastructure as a Service = Infraestrutura como Serviço
+ */
+
